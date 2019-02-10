@@ -8,7 +8,10 @@ const
     setupConfig,
     fetchHEAD,
     fetchBody,
-    parseBody
+    parseBody,
+    checkSchema,
+    loadSchema,
+    db
   } = require('../lib/scrape'),
   config = require('../lib/config');
 
@@ -85,7 +88,6 @@ describe('Scrape data', () => {
         done();
       });
     });
-
   });
 
   describe('parseBody', () => {
@@ -99,6 +101,33 @@ describe('Scrape data', () => {
         }
         assert(context.records.length, 'parseBody did not create records');
         done();
+      });
+    });
+  });
+
+  describe('loadSchema', () => {
+    it('Finds missing schema', done => {
+      checkSchema({}, (error, context) => {
+        if (error) {
+          console.error(error);
+          assert(!error, 'Error while checking for schema');
+        }
+        assert(context.createTables, 'checkSchema did not detect missing schema');
+        done();
+      });
+    });
+
+    it('Loads schema', done => {
+      loadSchema({createTables: true}, (error) => {
+        if (error) {
+          console.error(error);
+          assert(!error, 'Error while loading schema');
+        }
+        checkSchema({}, (error, context) => {
+          assert(!context.createTables, 'loadSchema did not create schema');
+          db.destroy();
+          done();
+        });
       });
     });
   });
