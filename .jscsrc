@@ -18,7 +18,7 @@
   "requireDotNotation": true,
   "requireLineBreakAfterVariableAssignment": true,
   "requireOperatorBeforeLineBreak": true,
-  "requirePaddingNewLinesInObjects": true,
+  "requirePaddingNewLinesInObjects": false,
   "requireParenthesesAroundIIFE": true,
   "requireSpaceAfterBinaryOperators": true,
   "requireSpaceAfterKeywords": true,

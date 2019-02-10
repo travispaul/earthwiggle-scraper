@@ -8,6 +8,7 @@
   "esversion": 6,
   "globals": {
     "describe": true,
-    "it": true
+    "it": true,
+    "before": true
   }
 }
