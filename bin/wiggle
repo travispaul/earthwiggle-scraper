@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+const
+  util = require('util'),
+  cmdln = require('cmdln'),
+  app = require('../lib');
+
+function App () {
+  app.desc = app.description;
+  cmdln.Cmdln.call(this, app);
+}
+
+util.inherits(App, cmdln.Cmdln);
+
+app.cmdList.forEach((cmd) => {
+  App.prototype[`do_${cmd}`] = app[cmd].main;
+  App.prototype[`do_${cmd}`].help = app[cmd].help;
+  App.prototype[`do_${cmd}`].options = app[cmd].options;
+});
+
+cmdln.main(new App());

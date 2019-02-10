@@ -1,0 +1,38 @@
+{
+  "name": "wiggle",
+  "version": "1.0.0",
+  "description": "Scrape and store the earthquake and tsunami data from phivolcs website. ",
+  "main": "lib/index.js",
+  "repository": "git@github.com:travispaul/earth-wiggle.git",
+  "author": "Travis Paul <tr@vispaul.me>",
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "start": "node ./bin/wiggle scrape",
+    "test": "mocha test",
+    "lint": "grunt lint",
+    "checks": "grunt checks"
+  },
+  "bin": {
+    "wiggle": "./bin/wiggle"
+  },
+  "private": true,
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "cheerio": "^1.0.0-rc.2",
+    "cmdln": "^4.4.0",
+    "knex": "^0.16.3",
+    "request": "^2.88.0",
+    "sqlite": "^3.0.1",
+    "vasync": "^2.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "grunt": "^1.0.3",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-jscs": "^3.0.1",
+    "grunt-mocha-test": "^0.13.3",
+    "grunt-task-loader": "^0.6.0",
+    "mocha": "^5.2.0",
+    "nock": "^10.0.6"
+  }
+}
