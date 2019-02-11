@@ -19,7 +19,68 @@
     "client": "sqlite3",
     "useNullAsDefault": true,
     "connection": {
-      "filename": ":memory:"
+      "filename": "var/test.db"
+    }
+  },
+  "imgCache": "__NOT_YET_USED__ : Needed due to invalid certs on phivolcs site",
+  "imgURL": "__NOT_YET_USED__ : Needed due to invalid certs on phivolcs site",
+  "slack": {
+    "hook": "https://hooks.slack.com/services/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",
+    "channel": "#api-testing",
+    "username": "EarthWiggle",
+    "escalateOnMatch": "davao",
+    "notificationEpoch": {
+      "hours": 3
+    },
+    "magnitude": {
+      "1": {
+        "type": "Nano",
+        "emoji": ":zzz:",
+        "color": "#c5efc0",
+        "impact": "Microearthquakes, not felt, or felt rarely. Recorded by seismographs"
+      },
+      "2": {
+        "type": "Micro",
+        "emoji": ":leaves:",
+        "color": "#c5efc0",
+        "impact": "Felt slightly by some people. No damage to buildings."
+      },
+      "3": {
+        "type": "Minor",
+        "emoji": ":vibration_mode:",
+        "color": "#f0e9b8",
+        "impact": "Often felt by people, but very rarely causes damage. Shaking of indoor objects can be noticeable."
+      },
+      "4": {
+        "type": "Light",
+        "emoji": ":warning:",
+        "color": "#efdba0",
+        "impact": "Noticeable shaking of indoor objects and rattling noises. Felt by most people in the affected area. Slightly felt outside. Generally causes none to minimal damage. Moderate to significant damage very unlikely. Some objects may fall off shelves or be knocked over."
+      },
+      "6": {
+        "type": "Strong",
+        "emoji": ":rotating_light:",
+        "color": "#ffce00",
+        "impact": "Damage to a moderate number of well-built structures in populated areas. Earthquake-resistant structures survive with slight to moderate damage. Poorly designed structures receive moderate to severe damage. Felt in wider areas; up to hundreds of miles/kilometers from the epicenter. Strong to violent shaking in epicentral area."
+      },
+      "7": {
+        "type": "Major",
+        "emoji": ":boom:",
+        "color": "#ff7100",
+        "impact": "Causes damage to most buildings, some to partially or completely collapse or receive severe damage. Well-designed structures are likely to receive damage. Felt across great distances with major damage mostly limited to 250 km from epicenter."
+      },
+      "8": {
+        "type": "Great",
+        "emoji": ":exploding_head:",
+        "color": "#ff0000",
+        "impact": "Major damage to buildings, structures likely to be destroyed. Will cause moderate to heavy damage to sturdy or earthquake-resistant buildings. Damaging in large areas. Felt in extremely large regions."
+      },
+      "9": {
+        "type": "Epic",
+        "emoji": ":radioactive_sign",
+        "color": "#ff0000",
+        "impact": "At or near total destruction - severe damage or collapse to all buildings. Heavy damage and shaking extends to distant locations. Permanent changes in ground topography."
+      }
     }
   },
   "schema": [
