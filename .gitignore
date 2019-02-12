@@ -63,3 +63,6 @@ typings/
 etc/config.json
 
 *.db
+var/*.jpg
+test/*.jpg
+.DS_Store

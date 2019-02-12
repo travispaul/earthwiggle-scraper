@@ -57,7 +57,7 @@ let body = fs.readFileSync(path.join(__dirname, 'body.html'), 'utf8').toString()
 describe('Scrape data', () => {
 
   before(done => {
-    setupConfig();
+    setupConfig({imgCache: false});
     done();
   });
 
@@ -233,7 +233,7 @@ describe('Scrape data', () => {
                 short: false
               }
             ],
-            image_url: 'https://earthquake.phivolcs.dost.gov.ph/2019_Earthquake_Information/February/2019_0210_0321_B1.jpg',
+            image_url: 'https://earthwiggle.travispaul.me/img/2019_0210_0321_B1.jpg',
             ts: 1549768860
           }
         ]
