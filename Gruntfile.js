@@ -30,6 +30,28 @@ module.exports = function (grunt) {
         },
         src: ['test/**/*.js']
       }
+    },
+    triton: {
+      server: {
+        options: {
+          waitForHTTP: true,
+          twiddle: true,
+          machine: {
+            name: 'earthwiggle',
+            tags: {
+              'triton.cns.services': 'earthwiggle',
+              firewall_enabled: true
+            },
+            'metadata.user-script': grunt.file.read('etc/triton-user-script.sh'),
+          },
+          image: {
+            name: 'minimal-64-lts'
+          },
+          package: {
+            memory: 256
+          }
+        }
+      }
     }
   });
 
@@ -47,4 +69,7 @@ module.exports = function (grunt) {
     'test'
   ]);
 
+  grunt.registerTask('deploy', [
+    'triton'
+  ]);
 };
