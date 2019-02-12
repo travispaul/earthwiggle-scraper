@@ -19,7 +19,7 @@
     "client": "sqlite3",
     "useNullAsDefault": true,
     "connection": {
-      "filename": "var/test.db"
+      "filename": ":memory:"
     }
   },
   "imgCache": "__NOT_YET_USED__ : Needed due to invalid certs on phivolcs site",

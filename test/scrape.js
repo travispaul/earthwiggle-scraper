@@ -67,10 +67,7 @@ describe('Scrape data', () => {
       fetchHEAD({
         etag: false
       }, (error, context) => {
-        if (error) {
-          console.error(error);
-          assert(!error, 'Error in HTTP request');
-        }
+        assert(!error, 'Error in HTTP request');
         assert(!context.body, 'fetchHEAD made a full HTTP request');
         done();
       });
@@ -116,10 +113,7 @@ describe('Scrape data', () => {
           .reply(200, body);
 
       fetchBody({}, (error, context) => {
-        if (error) {
-          console.error(error);
-          assert(!error, 'Error in HTTP request');
-        }
+        assert(!error, 'Error in HTTP request');
         assert(context.body, 'fetchBody did not return a body');
         scope.done();
         done();
@@ -132,10 +126,7 @@ describe('Scrape data', () => {
       parseBody({
         body: body
       }, (error, context) => {
-        if (error) {
-          console.error(error);
-          assert(!error, 'Error while parsing body');
-        }
+        assert(!error, 'Error while parsing body');
         assert(context.records.length, 'parseBody did not create records');
         done();
       });
@@ -145,10 +136,7 @@ describe('Scrape data', () => {
   describe('loadSchema', () => {
     it('Finds missing schema', done => {
       checkSchema({}, (error, context) => {
-        if (error) {
-          console.error(error);
-          assert(!error, 'Error while checking for schema');
-        }
+        assert(!error, 'Error while checking for schema');
         assert(context.createTables, 'checkSchema did not detect missing schema');
         done();
       });
@@ -156,10 +144,7 @@ describe('Scrape data', () => {
 
     it('Loads schema', done => {
       loadSchema({createTables: true}, (error) => {
-        if (error) {
-          console.error(error);
-          assert(!error, 'Error while loading schema');
-        }
+        assert(!error, 'Error while loading schema');
         checkSchema({}, (error, context) => {
           assert(!context.createTables, 'loadSchema did not create schema');
           done();
@@ -171,10 +156,7 @@ describe('Scrape data', () => {
   describe('insertRecords', () => {
     it('Inserts new records', done => {
       insertRecords({records: records}, (error) => {
-        if (error) {
-          console.error(error);
-          assert(!error, 'Error while inserting records');
-        }
+        assert(!error, 'Error while inserting records');
         db.select('*').from(config.type).then(rows => {
           assert(rows.length === 3);
           done();
@@ -184,10 +166,7 @@ describe('Scrape data', () => {
 
     it('Does not insert existing records', done => {
       insertRecords({records: records}, (error) => {
-        if (error) {
-          console.error(error);
-          assert(!error, 'Error while inserting records');
-        }
+        assert(!error, 'Error while inserting records');
         db.select('*').from(config.type).then(rows => {
           assert(rows.length === 3);
           done();
@@ -199,10 +178,7 @@ describe('Scrape data', () => {
   describe('saveETag', () => {
     it('Inserts a new ETag', done => {
       saveETag({etag: '123'}, (error) => {
-        if (error) {
-          console.error(error);
-          assert(!error, 'Error while inserting ETag');
-        }
+        assert(!error, 'Error while inserting ETag');
         db.select('*').from('etag').where({etag: '123'}).then(rows => {
           assert(rows.length === 1);
           done();
@@ -212,10 +188,7 @@ describe('Scrape data', () => {
 
     it('Does not reinsert ETag', done => {
       saveETag({etag: '123'}, (error) => {
-        if (error) {
-          console.error(error);
-          assert(!error, 'Error while inserting ETag');
-        }
+        assert(!error, 'Error while inserting ETag');
         db.select('*').from('etag').where({etag: '123'}).then(rows => {
           assert(rows.length === 1);
           db.destroy();
@@ -242,12 +215,12 @@ describe('Scrape data', () => {
               {
                 title: 'Magnitude',
                 value: '2.8',
-                short: false
+                short: true
               },
               {
                 title: 'Depth',
                 value: '045km',
-                short: false
+                short: true
               },
               {
                 title: ':world_map: Google Maps',
@@ -260,7 +233,8 @@ describe('Scrape data', () => {
                 short: false
               }
             ],
-            image_url: 'https://earthquake.phivolcs.dost.gov.ph/2019_Earthquake_Information/February/2019_0210_0321_B1.jpg'
+            image_url: 'https://earthquake.phivolcs.dost.gov.ph/2019_Earthquake_Information/February/2019_0210_0321_B1.jpg',
+            ts: 1549768860
           }
         ]
       };
@@ -294,6 +268,7 @@ describe('Scrape data', () => {
         records: []
       };
       sendSlackNotification(context, (error, newContext) => {
+        assert(!error);
         assert(!newContext.sent.length);
         done();
       });
@@ -304,6 +279,7 @@ describe('Scrape data', () => {
         overrideEpoch: DateTime.fromISO(records[0].event).plus({minutes: 1})
       };
       sendSlackNotification(context, (error, newContext) => {
+        assert(!error);
         assert(newContext.sent.length === 0);
         done();
       });
