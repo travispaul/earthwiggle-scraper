@@ -20,12 +20,11 @@
     "client": "sqlite3",
     "useNullAsDefault": true,
     "connection": {
-      "_filename": "var/test.db",
       "filename": ":memory:"
     }
   },
   "imgCache": "var",
-  "imgURL": "https://earthwiggle.travispaul.me/img/",
+  "imgURL": "https://earthwiggle.travispaul.me/img",
   "slack": {
     "hook": "https://hooks.slack.com/services/xxx/yyy/zzz",
     "channel": "#api-testing",
