@@ -20,37 +20,7 @@ const
     db
   } = require('../lib/scrape'),
   config = require('../lib/config'),
-  records = [
-    { link: 'https://earthquake.phivolcs.dost.gov.ph/2019_Earthquake_Information/February/2019_0210_0321_B1.html',
-      img: 'https://earthquake.phivolcs.dost.gov.ph/2019_Earthquake_Information/February/2019_0210_0321_B1.jpg',
-      event: '2019-02-10T11:21:00.000+08:00',
-      latitude: '07.58',
-      longitude: '126.74',
-      depth: '045',
-      magnitude: '2.8',
-      location: '020 km N 90° E of Baganga (Davao Oriental)'
-    },
-    {
-      link: 'https://earthquake.phivolcs.dost.gov.ph/2019_Earthquake_Information/February/2019_0210_0306_B1F.html',
-      img: 'https://earthquake.phivolcs.dost.gov.ph/2019_Earthquake_Information/February/2019_0210_0306_B1F.jpg',
-      event: '2019-02-10T11:06:00.000+08:00',
-      latitude: '09.86',
-      longitude: '126.57',
-      depth: '006',
-      magnitude: '4.5',
-      location: '047 km N 80° E of General Luna (Surigao Del Norte)'
-    },
-    {
-      link: 'https://earthquake.phivolcs.dost.gov.ph/2019_Earthquake_Information/February/2019_0210_0304_B1.html',
-      img: 'https://earthquake.phivolcs.dost.gov.ph/2019_Earthquake_Information/February/2019_0210_0304_B1.jpg',
-      event: '2019-02-10T11:04:00.000+08:00',
-      latitude: '09.86',
-      longitude: '126.54',
-      depth: '012',
-      magnitude: '2.9',
-      location: '043 km N 78° E of General Luna (Surigao Del Norte)'
-    }
-  ];
+  records = require('./records');
 
 let body = fs.readFileSync(path.join(__dirname, 'body.html'), 'utf8').toString();
 

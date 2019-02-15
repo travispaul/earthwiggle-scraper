@@ -9,7 +9,7 @@ const
     streams: [{
       name: 'downloader-test-stdout',
       stream: process.stdout,
-      level: 'debug'
+      level: 'info'
     }]
   }),
   assert = chai.assert,
