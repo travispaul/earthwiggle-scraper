@@ -30,6 +30,7 @@
     "channel": "#api-testing",
     "username": "EarthWiggle",
     "escalateOnMatch": "davao",
+    "triggerOnMagnitude": 3,
     "notificationEpoch": {
       "hours": 3
     },

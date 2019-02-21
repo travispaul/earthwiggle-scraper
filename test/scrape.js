@@ -220,8 +220,6 @@ describe('Scrape data', () => {
       const
         scope = nock(config.slack.hook)
           .post('')
-          .reply(200, 'ok')
-          .post('')
           .reply(200, 'ok'),
         context = {
           records: records,
@@ -229,7 +227,7 @@ describe('Scrape data', () => {
         };
       sendSlackNotification(context, (error, newContext) => {
         assert(!error);
-        assert(newContext.sent.length === 2);
+        assert(newContext.sent.length === 1);
         scope.done();
         done();
       });
