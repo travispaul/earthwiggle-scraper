@@ -98,6 +98,7 @@ describe('Scrape data', () => {
       }, (error, context) => {
         assert(!error, 'Error while parsing body');
         assert(context.records.length, 'parseBody did not create records');
+        expect(context.records.slice(0, 3)).to.deep.equal(records);
         done();
       });
     });
@@ -180,7 +181,7 @@ describe('Scrape data', () => {
             color: '#c5efc0',
             title: ':pushpin: :leaves: Micro seismic activity',
             title_link: 'https://earthquake.phivolcs.dost.gov.ph/2019_Earthquake_Information/February/2019_0210_0321_B1.html',
-            text: '020 km N 90° E of Baganga (Davao Oriental)',
+            text: '020 km N 90° E of Baganga (DAVAO ORIENTAL)',
             fields: [
               {
                 title: 'Magnitude',
@@ -189,12 +190,12 @@ describe('Scrape data', () => {
               },
               {
                 title: 'Depth',
-                value: '045km',
+                value: '45km',
                 short: true
               },
               {
                 title: ':world_map: Google Maps',
-                value: '<https://maps.google.com/?q=07.58,126.74|Location on google maps>',
+                value: '<https://maps.google.com/?q=7.58,126.74|Location on google maps>',
                 short: false
               },
               {
