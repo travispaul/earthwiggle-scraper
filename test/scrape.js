@@ -195,7 +195,7 @@ describe('Scrape data', () => {
               },
               {
                 title: ':world_map: Google Maps',
-                value: '<https://maps.google.com/?q=7.58,126.74|Location on google maps>',
+                value: '<https://maps.google.com/?q=7.58,126.74&ll=7.58,126.74&z=8|Location on google maps>',
                 short: false
               },
               {
