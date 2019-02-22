@@ -204,7 +204,7 @@ describe('Scrape data', () => {
                 short: false
               }
             ],
-            image_url: 'https://earthwiggle.travispaul.me/img/2019_0210_0321_B1.jpg',
+            image_url: 'https://earthwiggle.com/img/2019_0210_0321_B1.jpg',
             ts: 1549768860
           }
         ]

@@ -38,9 +38,12 @@ describe('API', () => {
         response.body.forEach((record) => {
           delete record.id;
           delete record.created;
+          delete record.img;
           results.push(record);
         });
-        expect(results).to.deep.equal(records);
+        const objCopy = Object.assign({}, records[0]);
+        delete objCopy.img;
+        expect(results[0]).to.deep.equal(objCopy);
         assert(!error);
         done();
       });
