@@ -1,0 +1,16 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "describe": true,
+    "it": true,
+    "before": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "no-case-declarations": ["warn"]
+  }
+}

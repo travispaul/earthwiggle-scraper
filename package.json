@@ -35,7 +35,7 @@
     "chai": "^4.2.0",
     "grunt": "^1.0.3",
     "grunt-contrib-jshint": "^2.0.0",
-    "grunt-jscs": "^3.0.1",
+    "grunt-eslint": "^21.0.0",
     "grunt-mocha-test": "^0.13.3",
     "grunt-task-loader": "^0.6.0",
     "mocha": "^5.2.0",

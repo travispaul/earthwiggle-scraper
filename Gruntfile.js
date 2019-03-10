@@ -16,11 +16,11 @@ module.exports = function (grunt) {
         src: jsFiles
       }
     },
-    jscs: {
+    eslint: {
       options: {
-        config: '.jscsrc'
+        configFile: '.eslintrc'
       },
-      src: jsFiles
+      target: jsFiles
     },
     mochaTest: {
       test: {
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('lint', [
     'jshint',
-    'jscs'
+    'eslint'
   ]);
 
   grunt.registerTask('test', [
