@@ -17,10 +17,12 @@ const
     saveETag,
     buildSlackPayload,
     sendSlackNotification,
+    sendDiscordNotification,
     db
   } = require('../lib/scrape'),
   config = require('../lib/config'),
-  records = require('./records');
+  records = require('./records'),
+  wtf = require('wtfnode');
 
 let body = fs.readFileSync(path.join(__dirname, 'body.html'), 'utf8').toString();
 
@@ -29,6 +31,10 @@ describe('Scrape data', () => {
   before(done => {
     setupConfig({imgCache: false});
     done();
+  });
+
+  after(function () {
+    wtf.dump();
   });
 
   describe('fetchHEAD', () => {
@@ -250,6 +256,46 @@ describe('Scrape data', () => {
       sendSlackNotification(context, (error, newContext) => {
         assert(!error);
         assert(newContext.sent.length === 0);
+        done();
+      });
+    });
+  });
+
+  describe('sendDiscordNotification', () => {
+    it('Sends Discord notification for new record', done => {
+      const
+        scope = nock(config.discord.hook)
+          .post('')
+          .reply(200, 'ok'),
+        context = {
+          records: records,
+          overrideEpoch: DateTime.fromISO(records[0].event).minus({minutes: 16})
+        };
+      sendDiscordNotification(context, (error, newContext) => {
+        assert(!error);
+        assert(newContext.sentDiscord.length === 1);
+        scope.done();
+        done();
+      });
+    });
+    it('Does not send discord notification when no records are present', done => {
+      const context = {
+        records: []
+      };
+      sendDiscordNotification(context, (error, newContext) => {
+        assert(!error);
+        assert(!newContext.sentDiscord.length);
+        done();
+      });
+    });
+    it('Does not send discord notification when all events are older than epoch', done => {
+      const context = {
+        records: records,
+        overrideEpoch: DateTime.fromISO(records[0].event).plus({minutes: 1})
+      };
+      sendDiscordNotification(context, (error, newContext) => {
+        assert(!error);
+        assert(newContext.sentDiscord.length === 0);
         done();
       });
     });

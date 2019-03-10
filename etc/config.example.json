@@ -24,7 +24,10 @@
     }
   },
   "imgCache": "var",
-  "imgURL": "https://earthwiggle.travispaul.me/img/",
+  "imgURL": "https://earthwiggle.com/img/",
+  "discord": {
+    "hook": "https://discordapp.com/api/webhooks/xxx/yyy/slack"
+  },
   "slack": {
     "hook": "https://hooks.slack.com/services/xxx/yyy/zzz",
     "channel": "#api-testing",
