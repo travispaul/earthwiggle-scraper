@@ -113,4 +113,9 @@
   var lessSpamPlz = ['m','o','c','.','e','l','g','g','i','w','h','t','r','a','e','@','o','f','n','i'];
   document.getElementById('mailto').href = 'mailto:' + lessSpamPlz.reverse().join('');
 
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-135035620-1');
+
 }());
