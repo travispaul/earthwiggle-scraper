@@ -26,7 +26,8 @@
   "imgCache": "var",
   "imgURL": "https://earthwiggle.com/img/",
   "discord": {
-    "hook": "https://discordapp.com/api/webhooks/xxx/yyy/slack"
+    "hook": "https://discordapp.com/api/webhooks/xxx/yyy/slack",
+    "triggerOnMagnitude": 3
   },
   "slack": {
     "hook": "https://hooks.slack.com/services/xxx/yyy/zzz",

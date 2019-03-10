@@ -21,8 +21,7 @@ const
     db
   } = require('../lib/scrape'),
   config = require('../lib/config'),
-  records = require('./records'),
-  wtf = require('wtfnode');
+  records = require('./records');
 
 let body = fs.readFileSync(path.join(__dirname, 'body.html'), 'utf8').toString();
 
@@ -31,10 +30,6 @@ describe('Scrape data', () => {
   before(done => {
     setupConfig({imgCache: false});
     done();
-  });
-
-  after(function () {
-    wtf.dump();
   });
 
   describe('fetchHEAD', () => {
