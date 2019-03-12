@@ -63,6 +63,12 @@
         "color": "#efdba0",
         "impact": "Noticeable shaking of indoor objects and rattling noises. Felt by most people in the affected area. Slightly felt outside. Generally causes none to minimal damage. Moderate to significant damage very unlikely. Some objects may fall off shelves or be knocked over."
       },
+      "5": {
+        "type": "Moderate",
+        "emoji": ":loudspeaker:",
+        "color": "#efdba0",
+        "impact": "Can cause damage of varying severity to poorly constructed buildings. At most, none to slight damage to all other buildings. Felt by everyone."
+      },
       "6": {
         "type": "Strong",
         "emoji": ":rotating_light:",
