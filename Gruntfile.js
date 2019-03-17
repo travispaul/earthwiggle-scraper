@@ -46,8 +46,4 @@ module.exports = function (grunt) {
     'lint',
     'test'
   ]);
-
-  grunt.registerTask('deploy', [
-    'triton'
-  ]);
 };
